@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webapp:
+    image: basicwebapp:v1
+    ports:
+      - 3000:3000
+  psql:
+    image: psql:v1
+    ports:
+      - 5432:5432
+    volumes:
+      - psqldb:/var/lib/postgresql/data
+volumes:
+  psqldb: {}

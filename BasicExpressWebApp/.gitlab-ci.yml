@@ -1,0 +1,28 @@
+stages: 
+  - build
+  - test
+
+image: node:latest
+
+services:
+  - postgres:latest
+
+variables:
+  POSTGRES_DB: my_products_tests
+  POSTGRES_USER: codex-coder
+  POSTGRES_PASSWORD: "pg123"
+
+build:
+  stage: build
+  script: 
+    - npm install
+
+test:
+  stage: test
+  script: 
+    - npm test
+
+  
+postgresql:
+  script:
+    - npm test
